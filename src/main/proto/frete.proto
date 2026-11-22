@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.gabriel.frete.proto";
+option java_outer_classname = "FreteProto";
+
+package frete;
+
+service FreteService {
+  rpc Calcular(FreteRequest) returns (FreteResponse); //unário
+}
+
+message FreteRequest {
+  string cep_origem = 1;
+  string cep_destino = 2;
+  double peso_kg = 3;
+}
+
+message FreteResponse {
+  double valor = 1;
+  int32 prazo_dias = 2;
+}
+
